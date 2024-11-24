@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import { useLocaleStorage } from './useLocaleStorage';
+import { useCountDown } from './useCountDown';
 
 
 const App = () => {
+
+  const count=useCountDown(60)
   const [value, setValue] = useState('');
 
   const { setItem, getItem, removeItem } = useLocaleStorage('value')
   return (
     <div className='tutorial-shorts'>
+      {count}
       <h1 className='mb-2 text-3xl font-bold'>useLocalStorage</h1>
       <input
         className='mb-4'
